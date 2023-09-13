@@ -136,6 +136,61 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+  const priceSection = document.querySelector('.panel.price');
+  const priceList = priceSection.querySelector('ul');
+  const priceListElements = priceList.querySelectorAll('li');
+  const finalPriceElement = priceSection.querySelector('.final-price');
+  let finalPrice = 10;
+
+  priceListElements.forEach((currentListElement) => {
+    if (currentListElement.classList.contains('pepperoni-price')) {
+      if (state.pepperoni) {
+        currentListElement.style.visibility = 'visible';
+        finalPrice += 1;
+      }
+      else {
+        currentListElement.style.visibility = 'hidden';
+      }
+    }
+    else if (currentListElement.classList.contains('mushrooms-price')) {
+      if (state.mushrooms) {
+        currentListElement.style.visibility = 'visible';
+        finalPrice += 1;
+      }
+      else {
+        currentListElement.style.visibility = 'hidden';
+      }
+    }
+    else if (currentListElement.classList.contains('green-peppers-price')) {
+      if (state.greenPeppers) {
+        currentListElement.style.visibility = 'visible';
+        finalPrice += 1;
+      }
+      else {
+        currentListElement.style.visibility = 'hidden';
+      }
+    }
+    else if (currentListElement.classList.contains('sauce-price')) {
+      if (state.whiteSauce) {
+        currentListElement.style.visibility = 'visible';
+        finalPrice += 3;
+      }
+      else {
+        currentListElement.style.visibility = 'hidden';
+      }
+    }
+    else if (currentListElement.classList.contains('crust-price')) {
+      if (state.glutenFreeCrust) {
+        currentListElement.style.visibility = 'visible';
+        finalPrice += 5;
+      }
+      else {
+        currentListElement.style.visibility = 'hidden';
+      }
+    }
+  });
+  const finalPriceString = "$" + finalPrice;
+  finalPriceElement.innerHTML = finalPriceString;
 }
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
