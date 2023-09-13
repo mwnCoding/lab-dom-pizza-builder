@@ -90,13 +90,53 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-}
+  document.querySelectorAll('.btn').forEach((currentButton) => {
+        if (currentButton.classList.contains('btn-pepperoni')) {
+          if (state.pepperoni) {
+            currentButton.classList.add('active');
+          }
+          else {
+            currentButton.classList.remove('active')
+          }
+        }
+        else if (currentButton.classList.contains('btn-mushrooms')) {
+          if (state.mushrooms) {
+            currentButton.classList.add('active');
+          }
+          else {
+            currentButton.classList.remove('active')
+          }
+        }
+        else if (currentButton.classList.contains('btn-green-peppers')) {
+          if (state.greenPeppers) {
+            currentButton.classList.add('active');
+          }
+          else {
+            currentButton.classList.remove('active')
+          }
+        }
+        else if (currentButton.classList.contains('btn-sauce')) {
+          if (state.whiteSauce) {
+            currentButton.classList.add('active');
+          }
+          else {
+            currentButton.classList.remove('active')
+          }
+        }
+        else if (currentButton.classList.contains('btn-crust')) {
+          if (state.glutenFreeCrust) {
+            currentButton.classList.add('active');
+          }
+          else {
+            currentButton.classList.remove('active')
+          }
+        }
+    });
+  } 
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
 }
-
-renderEverything();
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
 document.querySelector('.btn.btn-pepperoni').addEventListener('click', function () {
@@ -128,3 +168,5 @@ document.querySelector('.btn.btn-crust').addEventListener('click', function () {
   state.glutenFreeCrust = !state.glutenFreeCrust;
   renderEverything();
 });
+
+renderEverything();
